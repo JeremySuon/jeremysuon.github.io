@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>Jquery</title>
+		<script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+		<style type="text/css">
+			#circle {
+				width: 150px;
+				height: 150px;
+				border-radius: 50%;
+				background-color: green;
+				margin: 10px;
+			}
+			#hiddenText {
+				display: none;
+			}
+			.square {
+				width: 150px;
+				height: 150px;
+				background-color: red;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="toggleText">This is some text</p>
+		<button id="fadeToggle">Toggle Text</button>
+		<hr>
+		<p id="text">This is some text</p>
+		<button id="fadeOut">fade Out Text</button>
+		<p id="hiddenText">This text will be hidden initially</p>
+		<button id="fadeIn">fade In Text</button>
+		<hr>
+		<div id="circle"></div>
+		<iframe src="http://www.codestars.com"></iframe>
+		<p>This is some text</p>
+		
+		<hr>
+		<div class="square"></div>
+		<div class="square"></div>
+		
+		<script type="text/javascript">
+			$("#fadeToggle").click(function(){
+				if($("#toggleText").css("display") == "none"){
+					$("#toggleText").fadeIn();
+				}
+				else{
+					$("#toggleText").fadeOut();
+				}
+			});
+			$("#fadeOut").click(function(){
+				$("#text").fadeOut();
+			});
+			$("#fadeIn").click(function(){
+				$("#hiddenText").fadeIn();
+			});
+			$("#circle").hover(function(){
+				$("#circle").css("width");
+				$("p").html();
+				$("iframe").attr("src", "http://www.wikipedia.com");
+			});
+			
+			$("#circle").click(function(){
+				$(this).animate({
+					width:"400px", 
+					height:"400px",
+					marginLeft: "100px",
+					marginTop: "100px"
+				}, 2000, function(){
+					$(this).css("background-color", "red");
+				});
+				$(this).fadeOut("slow", function(){
+					alert("FadeOut Finished");
+				});
+				alert("You clicked a " + $(this).attr("id"));
+				$(this).css("display", "none");
+				$("p").html("This text has changed");
+			});
+		</script>
+	</body> 
+</html>
